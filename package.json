@@ -8,7 +8,7 @@
     "build": "vue-tsc && bunx vite build --outdir ./build",
     "preview": "bunx vite preview"
   },
-  "dependencies": { "gsap": "^3.12.2" },
+  "dependencies": { "gsap": "^3.12.2", "vue-responsive-video-background-player": "^2.3.1" },
   "devDependencies": {
     "@types/node": "^20.8.6",
     "@vitejs/plugin-vue": "^4.2.3",

@@ -85,10 +85,8 @@
       <button @click="explodeMinifigure">{{ explodeText }}</button>
       <button @click="randomizeInputs">Randomize</button>
       <input v-model="expressionVal"  type="range" min="0" max="500" step="100">
-      <input v-model="upperHue" type="range" min="0" max="360">
       <input v-model="upperSaturation" type="range" min="0" max="100">
       <input v-model="upperLightness" type="range" min="0" max="90">
-      <input v-model="lowerHue" type="range" min="0" max="360">
       <input v-model="lowerSaturation" type="range" min="0" max="100">
       <input v-model="lowerLightness" type="range" min="0" max="90">
     </div>
