@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "bunx vite",
-    "build": "vue-tsc && bunx vite build --outdir ./build",
+    "build": "vue-tsc && bunx vite build",
     "preview": "bunx vite preview"
   },
   "dependencies": { "@splinetool/loader": "^0.9.489", "@splinetool/runtime": "^0.9.489", "@types/three": "^0.149.0", "gsap": "^3.12.2", "three": "^0.149.0", "unconsole": "^1.0.0", "vue-responsive-video-background-player": "^2.3.1" },
