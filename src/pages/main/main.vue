@@ -1,10 +1,6 @@
 <template>
- 
-
  <DayNightSvg />
   <div class="scrollElement"></div>
-
-  <a href="https://codepen.io/collection/DxkYzq" target="_blank" class="btn btn_works">My Works</a>
   <div class="btn z-11">
     <DayNightSwitch />
   </div>
@@ -28,9 +24,7 @@ export default {
   setup() {
 
     onMounted(() => {
-
       let speed = 100;
-
       /*  SCENE 1 */
       let scene1 = gsap.timeline();
       ScrollTrigger.create({
@@ -86,8 +80,6 @@ export default {
       clouds.to("#cloud3", { x: -1000 }, 0)
       clouds.to("#cloud4", { x: -700, y: 25 }, 0)
 
-
-
       /* Sun motion Animation  */
       let sun = gsap.timeline();
       ScrollTrigger.create({
@@ -127,8 +119,6 @@ export default {
       scene2.fromTo("#h2-4", { y: 700 }, { y: 0 }, 0.2)
       scene2.fromTo("#h2-5", { y: 800 }, { y: 0 }, 0.3)
       scene2.fromTo("#h2-6", { y: 900 }, { y: 0 }, 0.3)
-
-
 
       /* Bats */
       gsap.fromTo("#bats", { opacity: 1, y: 400, scale: 0 }, {
@@ -186,8 +176,6 @@ export default {
       sceneTransition.to("#h2-1", { y: -680, scale: 1.5, transformOrigin: "50% 50%" }, 0)
       sceneTransition.to("#bg_grad", { attr: { cy: "-80" } }, 0.00)
       sceneTransition.to("#bg2", { y: 0 }, 0)
-
-
 
       /* Scene 3 */
       let scene3 = gsap.timeline();
