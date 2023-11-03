@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, ref } from 'vue';
+import { defineComponent, onMounted } from 'vue';
 import gsap from 'gsap';
 import TextPlugin from 'gsap/TextPlugin';
 
@@ -29,7 +29,7 @@ export default defineComponent({
       let words = gsap.utils.toArray("svg text"),
       tl = gsap.timeline({delay: 0.5})
 
-      words.forEach(el => {
+      words.forEach((el:any) => {
         tl.from(el, {text: "", duration: el.innerHTML.length * props.speed, ease: "none"});
       });
     });
