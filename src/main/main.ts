@@ -13,11 +13,9 @@ import PerfectScrollbar from 'vue3-perfect-scrollbar'
 
 /** CSS */
 import '@/assets/style/global.scss';
-// https://www.beercss.com/
-import "beercss";
-import "material-dynamic-colors";
+
 // https://windicss.org/
-import 'virtual:windi.css'
+import 'virtual:uno.css'
 /** CSS */
 
 async function mountApp() {

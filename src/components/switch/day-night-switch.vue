@@ -1,14 +1,12 @@
 
 <script setup lang="ts">
-import { ref } from 'vue';
-
-const isChecked = ref(false);
+const modelValue = defineModel( { default: false })
 </script>
 
 <template>
-  <div :class="isChecked ? 'container switch' : 'container'">
+  <div :class="modelValue ? 'container switch' : 'container'">
     <label for="switch">
-      <input type="checkbox" id="switch" v-model="isChecked">
+      <input type="checkbox" id="switch" v-model="modelValue">
       <div class="toggle-wrapper">
         <div class="day-night">
         </div>

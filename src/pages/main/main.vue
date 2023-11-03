@@ -1,24 +1,44 @@
 <template>
   <DayNightSvg />
   <div class="scrollElement">
-
   </div>
 
-  <div class="btn z-11">
-    <DayNightSwitch />
+ <div class="flex flex-col items-center w-full h-full fixed">
+  <div class="w-full flex items-start">
+    <!-- <TypingEffectText1 class="w-700px"/> -->
   </div>
+  <div class="glassmorphism w-1000px h-100px mt-20px flex items-center justify-center">
+    <!-- <div>
+      <VueLogo class="scale-50"/>
+    </div> -->
+    <div class="w-300px h-80px flex">
+      <DayNightSwitch v-model="isDay"/>
+    </div>
+ </div>
+</div>
+ 
 </template>
 
 <script lang="ts" setup>
-import { onMounted } from 'vue';
+import { onMounted, ref, watch } from 'vue';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import ScrollToPlugin from 'gsap/ScrollToPlugin';
 import DayNightSwitch from '@/components/switch/day-night-switch.vue';
 //@ts-ignore svg
 import DayNightSvg from './components/day-night-bg/day-night.vue'
-
+// import TypingEffectText1 from '@/components/typing-effect/text1.vue';
+// import VueLogo from '@/components/FE-logo/vue.vue';
+gsap.registerPlugin(ScrollToPlugin);
 gsap.registerPlugin(ScrollTrigger);
+const isDay = ref(true)
 
+watch(isDay, () => {
+  gsap.to(window, {
+    scrollTo: isDay.value ? 0:document.body.scrollHeight,
+    duration: 1
+  });
+});
 
 onMounted(() => {
   let speed = 100;
