@@ -33,5 +33,3 @@ async function mountApp() {
   app.mount('#app');
 }
 mountApp();
-
-mountApp()
