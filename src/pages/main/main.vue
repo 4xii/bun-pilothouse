@@ -7,23 +7,23 @@
     <div class="mt-20px ml-40px">
       <div class="glassmorphism w-60vw h-60vh  flex items-center justify-between pr-100px">
         <div class="flex  w-500px">
-          <div class="mr-30px">
+          <div class="mr-30px" v-motion-slide-visible-once-right>
             <div class="i-logos-vue text-3xl" />
           </div>
-          <div class="flex mr-30px">
+          <div class="flex mr-30px" v-motion-slide-visible-once-right>
             <div class="i-logos-vitest text-3xl" />
             <div class="i-logos-jest text-3xl" />
           </div>
-          <div class="flex mr-30px">
+          <div class="flex mr-30px" v-motion-slide-visible-once-right>
             <div class="i-logos-vitejs text-3xl" />
             <div class="i-logos-webpack text-3xl" />
           </div>
-          <div class="flex mr-30px">
+          <div class="flex mr-30px" v-motion-slide-visible-once-right>
             <div class="i-logos-nestjs text-3xl" />
             <div class="i-logos-egg text-3xl" />
           </div>
 
-          <div class="flex mr-30px">
+          <div class="flex mr-30px" v-motion-slide-visible-once-right>
             <div class="i-logos-ramda text-3xl" />
             <div class="i-logos-vueuse text-3xl" />
             <div class="i-logos-lodash text-3xl" />
