@@ -1,19 +1,40 @@
 <template>
-  <DayNightSvg />
+  <DayNightBackGround />
   <div class="scrollElement">
   </div>
 
-  <div class="flex flex-col items-center w-full h-full fixed">
-    <div class="w-full flex items-start">
-      <!-- <TypingEffectText1 class="w-700px"/> -->
-    </div>
-    <div class="glassmorphism w-1000px h-100px mt-20px flex items-center justify-center">
-      <!-- <div>
-      <VueLogo class="scale-50"/>
-    </div> -->
-      <div class="w-300px h-80px flex">
-        <DayNightSwitch @click="switchDayNight" :model-value="isDay" />
+  <div class="flex  items-start justify-between w-full h-full fixed ">
+    <div class="mt-20px ml-40px">
+      <div class="glassmorphism w-60vw h-60vh  flex items-center justify-between pr-100px">
+        <div class="flex  w-500px">
+          <div class="mr-30px">
+            <div class="i-logos-vue text-3xl" />
+          </div>
+          <div class="flex mr-30px">
+            <div class="i-logos-vitest text-3xl" />
+            <div class="i-logos-jest text-3xl" />
+          </div>
+          <div class="flex mr-30px">
+            <div class="i-logos-vitejs text-3xl" />
+            <div class="i-logos-webpack text-3xl" />
+          </div>
+          <div class="flex mr-30px">
+            <div class="i-logos-nestjs text-3xl" />
+            <div class="i-logos-egg text-3xl" />
+          </div>
+
+          <div class="flex mr-30px">
+            <div class="i-logos-ramda text-3xl" />
+            <div class="i-logos-vueuse text-3xl" />
+            <div class="i-logos-lodash text-3xl" />
+            <div class="i-logos-zod text-3xl" />
+            <div class="i-logos-bun text-3xl" />
+          </div>
+        </div>
       </div>
+    </div>
+    <div class="glassmorphism h-100px flex flex-center w-300px mt-20px mr-20px p-10px">
+      <DayNightSwitch @click="switchDayNight" :model-value="isDay" />
     </div>
   </div>
 </template>
@@ -23,7 +44,7 @@ import { onMounted, ref } from 'vue';
 import DayNightSwitch from '@/components/switch/day-night-switch.vue';
 import { useDebounceFn } from '@vueuse/core'
 //@ts-ignore svg
-import DayNightSvg from './components/day-night-bg/day-night.vue'
+import DayNightBackGround from './components/day-night-bg/day-night.vue'
 import { createBatsAnimation, createBirdAnimation, createCloudsAnimation, createFallingStarAnimation, createScene1Animation, createScene2Animation, createScene3Animation, createSceneTransition, createSunAnimation, createSunIncreaseAnimation, dayNightSwitch } from './gsap';
 
 const isDay = ref(true)
