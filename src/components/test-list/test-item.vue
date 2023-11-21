@@ -37,8 +37,8 @@ onMounted(async () => {
 </script>
 
 <template>
-  <li :style="color" class="flex items-center">
-    <div ref="el" class="w-5 h-5 flex-none align-mid ya r-1 relative">
+  <div :style="color" class="flex items-center bg-#fff p-8px rounded-4px">
+    <div ref="el" class="w-5 h-5 flex-none align-mid mr-4px relative">
       <div class="absolute transition duration-300" :class="state ? 'flip' : ''">
         <div class="i-carbon:circle-dash animate-spin animate-2s text-yellow4" />
       </div>
@@ -49,12 +49,13 @@ onMounted(async () => {
         <div class="text-$vp-c-brand-1 i-carbon:checkmark-outline" />
       </div>
     </div>
-    <div class="text-cool-gray-100 text-24px h-70px flex flex-center">
+
+    <div class="text-color-#fff text-24px  flex flex-center">
       <slot />
     </div>
-  </li>
+  </div>
 </template>
 <style scoped>
-li div:first-of-type div.flip {
+div:first-of-type div.flip {
   transform: rotateY(90deg);
 }</style>
