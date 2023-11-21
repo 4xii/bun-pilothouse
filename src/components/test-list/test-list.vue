@@ -2,10 +2,10 @@
   <ul
     class="features-list ~ col gap2 auto"
   >
-  <TestItem>4xi - NodeJS Full Stack Developer</TestItem>
-    <TestItem>Skills: Vue Ecosystem, Frontend Engineering, TypeScript</TestItem>
-    <TestItem>Project: AI Enterprise Application System Development</TestItem>
-    <TestItem>Interests: Open Source, Tech Innovation, Knowledge Sharing</TestItem>
+    <TestItem><span>NodeJS Full Stack Developer</span></TestItem>
+    <TestItem><span>Skills: Vue Ecosystem, Frontend Engineering, TypeScript</span></TestItem>
+    <TestItem><span>Project: AI Enterprise Application System Development</span></TestItem>
+    <TestItem><span>Interests: Open Source, Tech Innovation, Knowledge Sharing</span></TestItem>
   </ul>
 </template>
 <script setup lang="ts">

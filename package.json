@@ -8,7 +8,21 @@
     "build": "vue-tsc && vite build",
     "preview": "bunx vite preview"
   },
-  "dependencies": { "@iconify-json/carbon": "^1.1.21", "@iconify-json/logos": "^1.1.37", "@splinetool/loader": "^0.9.489", "@splinetool/runtime": "^0.9.489", "@types/three": "^0.149.0", "@vueuse/core": "^10.6.1", "@vueuse/motion": "^2.0.0", "gsap": "^3.12.2", "install": "^0.13.0", "three": "^0.149.0", "unconsole": "^1.0.0", "vue-responsive-video-background-player": "^2.3.1", "vue3-perfect-scrollbar": "^1.6.1" },
+  "dependencies": {
+    "@iconify-json/carbon": "^1.1.21",
+    "@iconify-json/logos": "^1.1.37",
+    "@splinetool/loader": "^0.9.489",
+    "@splinetool/runtime": "^0.9.489",
+    "@types/three": "^0.149.0",
+    "@vueuse/core": "^10.6.1",
+    "@vueuse/motion": "^2.0.0",
+    "gsap": "^3.12.2",
+    "install": "^0.13.0",
+    "three": "^0.149.0",
+    "unconsole": "^1.0.0",
+    "vue-responsive-video-background-player": "^2.3.1",
+    "vue3-perfect-scrollbar": "^1.6.1"
+  },
   "devDependencies": {
     "@types/node": "^20.8.6",
     "@vitejs/plugin-vue": "^4.2.3",

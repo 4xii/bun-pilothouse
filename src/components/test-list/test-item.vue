@@ -37,7 +37,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <li :style="color">
+  <li :style="color" class="flex items-center">
     <div ref="el" class="w-5 h-5 flex-none align-mid ya r-1 relative">
       <div class="absolute transition duration-300" :class="state ? 'flip' : ''">
         <div class="i-carbon:circle-dash animate-spin animate-2s text-yellow4" />
@@ -49,7 +49,7 @@ onMounted(async () => {
         <div class="text-$vp-c-brand-1 i-carbon:checkmark-outline" />
       </div>
     </div>
-    <div>
+    <div class="text-cool-gray-100 text-24px h-70px flex flex-center">
       <slot />
     </div>
   </li>

@@ -3,42 +3,25 @@
   <div class="scrollElement">
   </div>
 
-  <div class="flex  items-start justify-between w-full h-full overflow-auto fixed">
+  <div class="flex  items-start justify-between w-full h-full overflow-auto fixed ">
     <div class="mt-20px ml-40px">
-      <div class="glassmorphism w-60vw h-100px flex flex-col  p-0px mb-40px">
-        <div class="flex my-30px w-500px">
-          <div class="mr-30px">
-            <div class="i-logos-vue text-3xl" />
-          </div>
-          <div class="flex mr-30px">
-            <div class="i-logos-vitest text-3xl" />
-            <div class="i-logos-jest text-3xl" />
-          </div>
-          <div class="flex mr-30px">
-            <div class="i-logos-vitejs text-3xl" />
-            <div class="i-logos-webpack text-3xl" />
-          </div>
-          <div class="flex mr-30px">
-            <div class="i-logos-nestjs text-3xl" />
-            <div class="i-logos-egg text-3xl" />
-          </div>
 
-          <div class="flex mr-30px">
-            <div class="i-logos-ramda text-3xl" />
-            <div class="i-logos-vueuse text-3xl" />
-            <div class="i-logos-lodash text-3xl" />
-            <div class="i-logos-zod text-3xl" />
-            <div class="i-logos-bun text-3xl" />
+      <div class="glassmorphism-lg w-60vw  flex flex-col p-40px">
+        <div class="flex justify-between">
+          <div class="flex items-center">
+            <div class="w-180px mr-20px">
+              <Avatar />
+            </div>
+            <div class="text-80px">4XI</div>
           </div>
+          <LogoWall />
         </div>
-      </div>
-      <div class="glassmorphism-lg w-60vw h-200px flex flex-col  p-40px">
         <TestList />
       </div>
     </div>
 
 
-    <div class="glassmorphism h-100px flex flex-center w-300px mt-20px mr-20px p-10px">
+    <div class="glassmorphism h-100px flex flex-center w-260px mt-20px mr-20px p-10px rounded-40px">
       <DayNightSwitch @click="switchDayNight" :model-value="isDay" />
     </div>
   </div>
@@ -49,10 +32,11 @@ import { onMounted, ref } from 'vue';
 import DayNightSwitch from '@/components/switch/day-night-switch.vue';
 import { useDebounceFn } from '@vueuse/core'
 import TestList from '@/components/test-list/test-list.vue';
+import LogoWall from './components/logo-wall/logo-wall.vue'
+import Avatar from '@/components/avatar/avatar.vue'
 //@ts-ignore svg
 import DayNightBackGround from './components/day-night-bg/day-night.vue'
 import { createBatsAnimation, createBirdAnimation, createCloudsAnimation, createFallingStarAnimation, createScene1Animation, createScene2Animation, createScene3Animation, createSceneTransition, createSunAnimation, createSunIncreaseAnimation, dayNightSwitch } from './gsap';
-
 const isDay = ref(true)
 
 const switchDayNight = useDebounceFn(() => {
