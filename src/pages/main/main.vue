@@ -23,6 +23,9 @@
 
     <div class="glassmorphism h-100px flex flex-center w-260px mt-20px mr-20px p-10px rounded-40px">
       <DayNightSwitch @click="switchDayNight" :model-value="isDay" />
+      <div class="w-300px h-300px">
+        <Pink3DButton />
+      </div>
     </div>
   </div>
 </template>
@@ -32,8 +35,10 @@ import { onMounted, ref } from 'vue';
 import DayNightSwitch from '@/components/switch/day-night-switch.vue';
 import { useDebounceFn } from '@vueuse/core'
 import TestList from '@/components/test-list/test-list.vue';
+import Pink3DButton from '@/components/button/pink-3d-button.vue'
 import LogoWall from './components/logo-wall/logo-wall.vue'
 import Avatar from '@/components/avatar/avatar.vue'
+
 //@ts-ignore svg
 import DayNightBackGround from './components/day-night-bg/day-night.vue'
 import { createBatsAnimation, createBirdAnimation, createCloudsAnimation, createFallingStarAnimation, createScene1Animation, createScene2Animation, createScene3Animation, createSceneTransition, createSunAnimation, createSunIncreaseAnimation, dayNightSwitch } from './gsap';
