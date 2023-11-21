@@ -8,9 +8,9 @@ import App from './App.vue'
 /** Component */
 // @ts-ignore
 import { Plugin as VideoBackGroundPlayerPlugin} from 'vue-responsive-video-background-player'
-import PerfectScrollbar from 'vue3-perfect-scrollbar'
 /** Component */
 
+// @ts-ignore
 import { MotionPlugin } from '@vueuse/motion'
 
 
@@ -27,14 +27,7 @@ async function mountApp() {
   app.use(router);
   app.use(pinia);
   app.use(VideoBackGroundPlayerPlugin);
-
-app.use(MotionPlugin)
-  app.use(PerfectScrollbar, {
-    watchOptions: true,
-    options: {
-      suppressScrollX: true
-    }
-  })
+  app.use(MotionPlugin);
   app.mount('#app');
 }
 mountApp();
