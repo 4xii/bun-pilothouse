@@ -1,7 +1,7 @@
 /** vue core */
 import { createApp } from 'vue'
 import { createPinia } from 'pinia';
-import router from './router';
+import {setupRouter} from '../router';
 import App from './App.vue'
 /** vue core */
 
@@ -24,7 +24,7 @@ import 'virtual:uno.css'
 async function mountApp() {
   const pinia = createPinia();
   const app = createApp(App);
-  app.use(router);
+  setupRouter(app)
   app.use(pinia);
   app.use(VideoBackGroundPlayerPlugin);
   app.use(MotionPlugin);

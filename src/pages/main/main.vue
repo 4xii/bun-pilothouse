@@ -24,7 +24,7 @@
       <DayNightSwitch @click="switchDayNight" :model-value="isDay" />
     </div>
     <div class="w-220px h-400px relative">
-      <Pink3DButton class="absolute left-50% top-50% -translate-x-50% -translate-y-50%" />
+      <Pink3DButton @click="toMenu" class="absolute left-50% top-50% -translate-x-50% -translate-y-50%" />
     </div>
    </div>
   </div>
@@ -82,7 +82,9 @@ onMounted(() => {
   setupScrollListener();
 });
 
-
+const toMenu = () => {
+  
+}
 </script>
 
 <style scoped>
