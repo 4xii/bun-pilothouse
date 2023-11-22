@@ -1,5 +1,5 @@
-import { describe, expect, it, vi } from 'vitest'
-import {useGoto } from './goto'
+import { describe, expect, it } from 'vitest'
+import { useGoto } from './goto'
 import { useSetup } from '@/tests/helper'
 import { RouteNames } from '@/router/const'
 
