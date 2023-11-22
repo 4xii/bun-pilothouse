@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite'
+import { defineConfig } from 'vitest/config'
 import * as path from 'path';
 import vue from '@vitejs/plugin-vue'
 import UnoCSS from 'unocss/vite'
@@ -16,6 +16,10 @@ export default defineConfig({
     alias: {
       '@': path.resolve(__dirname, './src'),
     },
+  },
+  test: {
+    environment: 'happy-dom',
+    setupFiles: path.resolve(__dirname, './vitest.setup.ts'),
   },
   assetsInclude: ['**/*.mp4','**/*.splinecode'],
   build:{
