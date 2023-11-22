@@ -24,7 +24,7 @@
       <DayNightSwitch @click="switchDayNight" :model-value="isDay" />
     </div>
     <div class="w-220px h-400px relative">
-      <Pink3DButton @click="toMenu" class="absolute left-50% top-50% -translate-x-50% -translate-y-50%" />
+      <Pink3DButton @clickButton="toMenu" class="absolute left-50% top-50% -translate-x-50% -translate-y-50%" />
     </div>
    </div>
   </div>
@@ -42,6 +42,10 @@ import Avatar from '@/components/avatar/avatar.vue'
 //@ts-ignore svg
 import DayNightBackGround from './components/day-night-bg/day-night.vue'
 import { createBatsAnimation, createBirdAnimation, createCloudsAnimation, createFallingStarAnimation, createScene1Animation, createScene2Animation, createScene3Animation, createSceneTransition, createSunAnimation, createSunIncreaseAnimation, dayNightSwitch } from './gsap';
+import { useGoto } from '@/hooks/goto';
+
+const { gotoMenu }= useGoto();
+
 const isDay = ref(true)
 
 const switchDayNight = useDebounceFn(() => {
@@ -83,7 +87,8 @@ onMounted(() => {
 });
 
 const toMenu = () => {
-  
+
+  gotoMenu();
 }
 </script>
 

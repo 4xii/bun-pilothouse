@@ -3,7 +3,6 @@ import { RouteNames } from '@/router/const'
 
 export function useGoto() {
   const router = useRouter()
-
   function gotoMain() {
     router.push({
       name: RouteNames.MAIN,

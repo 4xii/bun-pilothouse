@@ -1,15 +1,19 @@
 <template>
   <div class="pink-3d-button-container">
-    <a id="pink-button" href="#">
+    <div @click="onClick" id="pink-button" href="#">
       <span>Let's go!</span>
-    </a>
-    <span class="ok">Let's go!</span>
+    </div>
+    <span @click="onClick" class="ok">Let's go!</span>
   </div>
 </template>
 
 <script setup lang="ts" >
 import { onMounted } from 'vue';
 import { Experience } from './experience';
+const emit = defineEmits(['clickButton']);
+const onClick = () => {
+  emit('clickButton');
+}
 onMounted(() => {
   const container = document.querySelector('.pink-3d-button-container')
   if (!container) {

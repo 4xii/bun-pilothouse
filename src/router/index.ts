@@ -20,6 +20,18 @@ const routes: Array<RouteRecordRaw> = [
       },
     ],
   },
+  {
+    path: '/menu',
+    name: RouteNames.MENU,
+    redirect: '/menu/index',
+    children: [
+      {
+        path: 'index',
+        name: 'menu_index',
+        component: () => import('@/pages/menu/menu.vue'),
+      },
+    ],
+  },
   //设置兜底路由
   {
     path: '/:w+',
