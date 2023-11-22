@@ -5,7 +5,6 @@
 
   <div class="flex  items-start justify-between w-full h-full overflow-auto fixed ">
     <div class="mt-20px ml-40px">
-
       <div class="glassmorphism-lg w-60vw  flex flex-col p-40px">
         <div class="flex justify-between">
           <div class="flex items-center">
@@ -20,13 +19,14 @@
       </div>
     </div>
 
-
+   <div class="flex flex-col flex-center pr-140px">
     <div class="glassmorphism h-100px flex flex-center w-260px mt-20px mr-20px p-10px rounded-40px">
       <DayNightSwitch @click="switchDayNight" :model-value="isDay" />
-      <div class="w-300px h-300px">
-        <Pink3DButton />
-      </div>
     </div>
+    <div class="w-220px h-400px relative">
+      <Pink3DButton class="absolute left-50% top-50% -translate-x-50% -translate-y-50%" />
+    </div>
+   </div>
   </div>
 </template>
 

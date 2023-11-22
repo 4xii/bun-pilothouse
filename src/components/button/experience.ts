@@ -28,8 +28,10 @@ export class Experience {
   _clock = new THREE.Clock()
   innerWidth!: number
   innerHeight!: number
+  raf?:number
   container: Element
   constructor(container: Element, width: number, height: number) {
+
     console.clear()
     this.container = container
     this.raycaster = new THREE.Raycaster();
@@ -39,7 +41,7 @@ export class Experience {
     };
 
     this.camera = new THREE.PerspectiveCamera(70, width / height, 1, 1000);
-    this.camera.position.z = 200;
+    this.camera.position.z = 30;
 
     this.renderer = new THREE.WebGLRenderer({
       antialias: true,
@@ -49,7 +51,6 @@ export class Experience {
     this.renderer.setClearColor(0xffffff, 0.0);
     this.renderer.setPixelRatio(1.6);
     container.appendChild(this.renderer.domElement)
-
     const fps = 120
     this.fpsInterval = 1000 / fps
     this.then = Date.now()
@@ -90,7 +91,7 @@ export class Experience {
     const cubemap = (new THREE.CubeTextureLoader()).load(urls);
     cubemap.format = THREE.RGBAFormat;
 
-    const geometry = new THREE.SphereGeometry(24, 32, 32);
+    const geometry = new THREE.SphereGeometry(4, 16, 16);
     const material = new THREE.MeshPhysicalMaterial({
       color: 0xffffff,
       roughness: 0.3,
@@ -101,22 +102,22 @@ export class Experience {
     });
 
     this._sphere = new THREE.Mesh(geometry, material);
-    this._sphere.position.y = -30;
-    this._sphere.position.x = -25;
+    this._sphere.position.y = -5;
+    this._sphere.position.x = -10;
     this.scene.add(this._sphere);
 
-    const geometryTorus = new THREE.TorusGeometry(16, 8, 16, 100);
+    const geometryTorus = new THREE.TorusGeometry(4, 2, 16, 100);
     this._torus = new THREE.Mesh(geometryTorus, material);
-    this._torus.position.y = 30;
-    this._torus.position.x = 30;
+    this._torus.position.y = 5;
+    this._torus.position.x = 10;
     this._torus.rotation.x = 2.3;
     this._torus.rotation.y = 0.3;
     this.scene.add(this._torus);
 
-    const geometryCone = new THREE.ConeGeometry(8, 16, 32);
+    const geometryCone = new THREE.ConeGeometry(2, 8, 32);
     this._cone = new THREE.Mesh(geometryCone, material);
-    this._cone.position.y = 12;
-    this._cone.position.x = -50;
+    this._cone.position.y = 6;
+    this._cone.position.x = -10;
     this._cone.position.z = 3;
     this._cone.rotation.x = -0.3;
     this._cone.rotation.z = 0.7;
@@ -135,8 +136,8 @@ export class Experience {
     );
     gsap.fromTo(
       this._torus.position,
-      { x: 10, y: 20 },
-      { x: 30, y: 40 }
+      { x: 5, y: 10 },
+      { x:5, y: 10 ,z:2}
     );
     gsap.fromTo(
       this._torus.rotation,
@@ -150,7 +151,7 @@ export class Experience {
     );
     gsap.fromTo(
       this._sphere.position, { x: -10, y: -10 },
-      { x: -30, y: -40 }
+      { x: -10, y: -10 }
     );
 
     gsap.fromTo(
@@ -158,8 +159,8 @@ export class Experience {
       { x: 1.35, y: 1.35, z: 1.35 }
     );
     gsap.fromTo(
-      this._cone.position, { x: -30, y: 2, z: 3 },
-      { x: -70, y: 12, z: 3 }
+      this._cone.position, { x: -10, y: 2, z: 3 },
+      { x: -20, y: 10, z: 3 }
     );
 
     gsap.fromTo(
@@ -185,7 +186,6 @@ export class Experience {
 
   bind() {
     window.addEventListener('resize', this.resize.bind(this), false)
-    document.body.addEventListener("mousemove", this.onMouseMove.bind(this), false);
     document.getElementById("pink-button")!.addEventListener("mouseenter", () => {
       gsap.to(".ok", { scale: 1.35 });
       this.animateIn();
@@ -198,7 +198,7 @@ export class Experience {
 
   }
 
-  onMouseMove(event) {
+  onMouseMove(event:THREE.Event) {
     this.mouse.x = (event.clientX / this.container.clientWidth) * 2 - 1;
     this.mouse.y = -(event.clientY / this.container.clientHeight) * 2 + 1;
   }
@@ -222,12 +222,5 @@ export class Experience {
   }
 
   resize() {
-    this.innerWidth = this.container.clientWidth
-    this.innerHeight = this.container.clientHeight
-
-    this.camera.aspect = this.innerWidth / this.innerHeight
-    this.camera.updateProjectionMatrix()
-
-    this.renderer.setSize(this.innerWidth, this.innerHeight)
   }
 }

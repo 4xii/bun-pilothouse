@@ -1,65 +1,60 @@
 <template>
- <div class="home">
-  <a id="pink-button" href="#">
-    <span>play</span>
-  </a>
-  <span class="ok">play</span>
-</div>
+  <div class="pink-3d-button-container">
+    <a id="pink-button" href="#">
+      <span>Let's go!</span>
+    </a>
+    <span class="ok">Let's go!</span>
+  </div>
 </template>
 
 <script setup lang="ts" >
 import { onMounted } from 'vue';
 import { Experience } from './experience';
-onMounted(()=>{
-  const container = document.querySelector( '.home' )
-  if(!container){
+onMounted(() => {
+  const container = document.querySelector('.pink-3d-button-container')
+  if (!container) {
     return
   }
- new Experience( container, container.clientWidth, container.clientHeight )
+  new Experience(container, container.clientWidth, container.clientHeight )
 })
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 @font-face {
   font-family: "bw";
   src: url("@/assets/woff/pink-button.woff") format("woff");
 }
-
-.home {
-  scale: 0.5;
-  position: fixed;
-  height: 100vh;
-  width: 100vw;
-  overflow: hidden;
-  top: 0%;
-  left: 0%;
-  background-color: #e9f5ff;
-
+.pink-3d-button-container {
+  position: relative;
+  width: 500px;
+  height: 400px;
+  
   canvas {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 4;
+    z-index: 4 !important;
     pointer-events: none;
   }
 
   span {
     position: relative;
-    z-index: 6;
+    z-index: 2;
     font-family: "bw";
     text-decoration: none;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1);
-    font-size: 3rem;
+    font-size: 36px;
     color: #fff;
     pointer-events: none;
   }
 
-  a {
+  #pink-button {
     font-family: "bw";
     text-decoration: none;
+    z-index: 1;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -68,7 +63,7 @@ onMounted(()=>{
     color: #fff;
     background-color: #acc7ed;
     border-radius: 10rem;
-    padding: 1.5rem 4rem 2rem;
+    padding: 1rem 4rem 1rem;
 
     transform-style: preserve-3d;
     transition: all 0.6s ease;
@@ -122,4 +117,5 @@ onMounted(()=>{
       }
     }
   }
-}</style>
+}
+</style>
