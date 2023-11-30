@@ -5,28 +5,21 @@
 
   <div class="flex  items-start justify-between w-full h-full overflow-auto fixed ">
     <div class="mt-20px ml-40px">
-      <div class="glassmorphism-lg w-60vw  flex flex-col p-40px">
+      <div class="glassmorphism-lg w-70vw  flex flex-col p-40px">
         <div class="flex justify-between">
-          <div class="flex items-center">
-            <div class="w-180px mr-20px">
-              <Avatar />
+          <ProfileCard />
+          <div class="flex flex-col flex-center ">
+            <div class="glassmorphism h-100px flex flex-center w-260px mt-20px mr-20px p-10px rounded-40px">
+              <DayNightSwitch @click="switchDayNight" :model-value="isDay" />
             </div>
-            <div class="text-80px">4XI</div>
+            <div class="w-220px h-400px relative">
+              <Pink3DButton @clickButton="toMenu" class="absolute left-50% top-50% -translate-x-50% -translate-y-50%" />
+            </div>
           </div>
-          <LogoWall />
         </div>
-        <TestList />
       </div>
     </div>
 
-   <div class="flex flex-col flex-center pr-140px">
-    <div class="glassmorphism h-100px flex flex-center w-260px mt-20px mr-20px p-10px rounded-40px">
-      <DayNightSwitch @click="switchDayNight" :model-value="isDay" />
-    </div>
-    <div class="w-220px h-400px relative">
-      <Pink3DButton @clickButton="toMenu" class="absolute left-50% top-50% -translate-x-50% -translate-y-50%" />
-    </div>
-   </div>
   </div>
 </template>
 
@@ -34,17 +27,14 @@
 import { onMounted, ref } from 'vue';
 import DayNightSwitch from '@/components/switch/day-night-switch.vue';
 import { useDebounceFn } from '@vueuse/core'
-import TestList from '@/components/test-list/test-list.vue';
 import Pink3DButton from '@/components/button/pink-3d-button.vue'
-import LogoWall from './components/logo-wall/logo-wall.vue'
-import Avatar from '@/components/avatar/avatar.vue'
-
+import ProfileCard from '@/components/profile-card/profile-card.vue'
 //@ts-ignore svg
 import DayNightBackGround from './components/day-night-bg/day-night.vue'
 import { createBatsAnimation, createBirdAnimation, createCloudsAnimation, createFallingStarAnimation, createScene1Animation, createScene2Animation, createScene3Animation, createSceneTransition, createSunAnimation, createSunIncreaseAnimation, dayNightSwitch } from './gsap';
 import { useGoto } from '@/hooks/goto';
 
-const { gotoMenu }= useGoto();
+const { gotoMenu } = useGoto();
 
 const isDay = ref(true)
 
