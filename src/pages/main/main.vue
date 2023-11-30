@@ -19,7 +19,6 @@
         </div>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -71,13 +70,13 @@ function handleScroll() {
     isDay.value = false;
   }
 }
+
 onMounted(() => {
   initScrollTriggers();
   setupScrollListener();
 });
 
 const toMenu = () => {
-
   gotoMenu();
 }
 </script>
