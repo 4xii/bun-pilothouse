@@ -7,31 +7,31 @@
   </div>
 </template>
 
-<script setup lang="ts" >
-import { onMounted } from 'vue';
-import { Experience } from './experience';
-const emit = defineEmits(['clickButton']);
+<script setup lang="ts">
+import { onMounted } from 'vue'
+import { Experience } from './experience'
+const emit = defineEmits(['clickButton'])
 const onClick = () => {
-  emit('clickButton');
+  emit('clickButton')
 }
 onMounted(() => {
   const container = document.querySelector('.pink-3d-button-container')
   if (!container) {
     return
   }
-  new Experience(container, container.clientWidth, container.clientHeight )
+  new Experience(container, container.clientWidth, container.clientHeight)
 })
 </script>
 <style lang="scss">
 @font-face {
-  font-family: "bw";
-  src: url("@/assets/woff/pink-button.woff") format("woff");
+  font-family: 'bw';
+  src: url('@/assets/woff/pink-button.woff') format('woff');
 }
 .pink-3d-button-container {
   position: relative;
   width: 500px;
   height: 400px;
-  
+
   canvas {
     position: absolute;
     top: 50%;
@@ -44,7 +44,7 @@ onMounted(() => {
   span {
     position: relative;
     z-index: 2;
-    font-family: "bw";
+    font-family: 'bw';
     text-decoration: none;
     position: absolute;
     top: 50%;
@@ -56,7 +56,7 @@ onMounted(() => {
   }
 
   #pink-button {
-    font-family: "bw";
+    font-family: 'bw';
     text-decoration: none;
     z-index: 1;
     position: absolute;
@@ -78,7 +78,7 @@ onMounted(() => {
     }
 
     &:after {
-      content: "";
+      content: '';
       background: linear-gradient(56deg, #61dafb 0%, #d6cbf6 46%, #f2056f 100%);
       width: 80%;
       height: 20%;
@@ -93,7 +93,7 @@ onMounted(() => {
     }
 
     &:before {
-      content: "";
+      content: '';
       background: linear-gradient(56deg, #61dafb 0%, #d6cbf6 46%, #f2056f 100%);
       width: 100%;
       height: 100%;

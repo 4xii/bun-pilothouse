@@ -1,7 +1,7 @@
-import { createRouter, createWebHistory } from 'vue-router';
-import type { RouteRecordRaw, Router } from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router'
+import type { RouteRecordRaw, Router } from 'vue-router'
 import { RouteNames } from './const'
-import { App } from 'vue';
+import { App } from 'vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -39,30 +39,25 @@ const routes: Array<RouteRecordRaw> = [
       path: '/',
     },
   },
-];
-
-
+]
 
 export function setupRouterGuard(router: Router) {
   router.beforeEach(() => {
-   // TODO
+    // TODO
   })
   router.afterEach(() => {
     // TODO
   })
 }
 
-
-
 let router: Router
 export const setupRouter = async (app: App) => {
   router = createRouter({
     history: createWebHistory('/'),
     routes,
-  });
+  })
 
   app.use(router)
   setupRouterGuard(router)
   await router.isReady()
 }
-

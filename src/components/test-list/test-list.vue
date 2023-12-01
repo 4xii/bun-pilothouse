@@ -1,11 +1,23 @@
 <template>
-  <ul
-    class="features-list ~ col gap2 auto"
-  >
-    <TestItem class="my-10px"><span>NodeJS Full Stack Developer</span></TestItem>
-    <TestItem class="my-10px"><span>Skills: Vue Ecosystem, Frontend Engineering, TypeScript</span></TestItem>
-    <TestItem class="my-10px"><span>Project: AI Enterprise Application System Development</span></TestItem>
-    <TestItem class="my-10px"><span>Interests: Open Source, Tech Innovation, Knowledge Sharing</span></TestItem>
+  <ul class="features-list ~ col gap2 auto">
+    <TestItem class="my-10px"
+      ><span>NodeJS Full Stack Developer</span></TestItem
+    >
+    <TestItem class="my-10px"
+      ><span
+        >Skills: Vue Ecosystem, Frontend Engineering, TypeScript</span
+      ></TestItem
+    >
+    <TestItem class="my-10px"
+      ><span
+        >Project: AI Enterprise Application System Development</span
+      ></TestItem
+    >
+    <TestItem class="my-10px"
+      ><span
+        >Interests: Open Source, Tech Innovation, Knowledge Sharing</span
+      ></TestItem
+    >
   </ul>
 </template>
 <script setup lang="ts">

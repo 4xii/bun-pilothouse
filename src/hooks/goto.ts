@@ -17,6 +17,6 @@ export function useGoto() {
 
   return {
     gotoMain,
-    gotoMenu
+    gotoMenu,
   }
 }

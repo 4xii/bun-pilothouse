@@ -1,15 +1,13 @@
-
 <script setup lang="ts">
-const modelValue = defineModel( { default: false })
+const modelValue = defineModel({ default: false })
 </script>
 
 <template>
   <div :class="modelValue ? 'container switch' : 'container'">
     <label for="switch">
-      <input type="checkbox" id="switch" v-model="modelValue">
+      <input type="checkbox" id="switch" v-model="modelValue" />
       <div class="toggle-wrapper">
-        <div class="day-night">
-        </div>
+        <div class="day-night"></div>
         <div class="tree-left">
           <div class="tree"></div>
           <div class="trunk">
@@ -46,25 +44,40 @@ const modelValue = defineModel( { default: false })
   </div>
 </template>
 
-
 <style scoped>
 .container {
   --hill-left: #5c6090;
   --hill-right: #4b4f85;
-  --sky-bg-night: linear-gradient(to bottom, rgba(185, 147, 212, 1) 0%, rgba(230, 224, 237, 1) 65%);
+  --sky-bg-night: linear-gradient(
+    to bottom,
+    rgba(185, 147, 212, 1) 0%,
+    rgba(230, 224, 237, 1) 65%
+  );
   --tree-trunk: #3b3853;
   --tree: rgba(76, 80, 139, 1);
-  --sun: linear-gradient(24deg, rgba(255, 219, 156, 1) 0%, rgba(254, 195, 87, 1) 53%);
+  --sun: linear-gradient(
+    24deg,
+    rgba(255, 219, 156, 1) 0%,
+    rgba(254, 195, 87, 1) 53%
+  );
   --day-night: rgba(242, 198, 160, 0.6);
 }
 
 .container.switch {
   --hill-left: #602291;
   --hill-right: #511a7f;
-  --sky-bg-day: linear-gradient(180deg, rgba(231, 95, 122, 1) 0%, rgba(255, 177, 104, 1) 83%);
+  --sky-bg-day: linear-gradient(
+    180deg,
+    rgba(231, 95, 122, 1) 0%,
+    rgba(255, 177, 104, 1) 83%
+  );
   --tree-trunk: #3b3853;
   --tree: #78177b;
-  --sun: linear-gradient(180deg, rgba(255, 219, 156, 1) 0%, rgba(254, 195, 87, 1) 53%);
+  --sun: linear-gradient(
+    180deg,
+    rgba(255, 219, 156, 1) 0%,
+    rgba(254, 195, 87, 1) 53%
+  );
   --day-night: #6c528cb3;
 }
 
@@ -72,7 +85,7 @@ const modelValue = defineModel( { default: false })
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: .2s linear;
+  transition: 0.2s linear;
   transform: scale(0.4);
 }
 
@@ -90,13 +103,17 @@ input {
   background: var(--sky-bg-night);
 
   &:before {
-    content: "";
+    content: '';
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(180deg, rgba(231, 95, 122, 1) 0%, rgba(255, 177, 104, 1) 83%);
+    background: linear-gradient(
+      180deg,
+      rgba(231, 95, 122, 1) 0%,
+      rgba(255, 177, 104, 1) 83%
+    );
     opacity: 0;
     transition: 1s;
     border-radius: 120px;
@@ -104,7 +121,7 @@ input {
   }
 }
 
-input#switch:checked+*:before {
+input#switch:checked + *:before {
   opacity: 1;
 }
 
@@ -168,7 +185,7 @@ input#switch:checked+*:before {
   transform: rotate(-22deg);
 
   &:before {
-    content: "";
+    content: '';
     position: absolute;
     width: 10px;
     height: 44px;
@@ -190,7 +207,7 @@ input#switch:checked+*:before {
   transform: rotate(22deg);
 
   &:after {
-    content: "";
+    content: '';
     position: absolute;
     width: 10px;
     height: 56px;
@@ -215,7 +232,7 @@ input#switch:checked+*:before {
   transform: rotate(40deg);
 
   &:before {
-    content: "";
+    content: '';
     position: absolute;
     left: -50px;
     top: -50px;
@@ -278,7 +295,7 @@ input#switch:checked+*:before {
   border-radius: 4px;
 
   &:before {
-    content: "";
+    content: '';
     position: absolute;
     width: 12px;
     height: 30px;
@@ -291,7 +308,7 @@ input#switch:checked+*:before {
   }
 
   &:after {
-    content: "";
+    content: '';
     position: absolute;
     top: 23px;
     left: -4px;
@@ -343,7 +360,7 @@ input#switch:checked+*:before {
   height: 12px;
 
   &:before {
-    content: "";
+    content: '';
     position: absolute;
     top: -12px;
     width: 0;
@@ -354,7 +371,7 @@ input#switch:checked+*:before {
   }
 
   &:after {
-    content: "";
+    content: '';
     position: absolute;
     top: 12px;
     border-right: 6px solid transparent;
@@ -370,7 +387,7 @@ input#switch:checked+*:before {
   top: -6px;
 
   &:before {
-    content: "";
+    content: '';
     position: absolute;
     top: -12px;
     width: 0;
@@ -381,7 +398,7 @@ input#switch:checked+*:before {
   }
 
   &:after {
-    content: "";
+    content: '';
     position: absolute;
     top: 12px;
     border-right: 6px solid transparent;
@@ -399,7 +416,7 @@ input#switch:checked+*:before {
 
 .small-star .vertical {
   &:before {
-    content: "";
+    content: '';
     position: absolute;
     top: -8px;
     width: 0;
@@ -410,7 +427,7 @@ input#switch:checked+*:before {
   }
 
   &:after {
-    content: "";
+    content: '';
     position: absolute;
     top: 8px;
     border-right: 4px solid transparent;
@@ -426,7 +443,7 @@ input#switch:checked+*:before {
   left: 4px;
 
   &:before {
-    content: "";
+    content: '';
     position: absolute;
     top: -8px;
     width: 0;
@@ -437,7 +454,7 @@ input#switch:checked+*:before {
   }
 
   &:after {
-    content: "";
+    content: '';
     position: absolute;
     top: 8px;
     border-right: 4px solid transparent;

@@ -1,11 +1,24 @@
 <template>
   <ul class="tabs flex flex-center" ref="tabsRef">
-    <div class="indicator" ref="sliderIndicatorRef" :style="{ left: `${initialSliderPos}px` }"></div>
-    <li class="tab-item" v-for="(link) in links" :key="link.id" ref="menuItemRefs" @click="sliderToPosition(link.id)">
-      <div class="tab-link" :class="[
-        link.id == 3 ? 'center' : null,
-        link.id === selectedIndex ? 'active' : null
-      ]">
+    <div
+      class="indicator"
+      ref="sliderIndicatorRef"
+      :style="{ left: `${initialSliderPos}px` }"
+    ></div>
+    <li
+      class="tab-item"
+      v-for="link in links"
+      :key="link.id"
+      ref="menuItemRefs"
+      @click="sliderToPosition(link.id)"
+    >
+      <div
+        class="tab-link"
+        :class="[
+          link.id == 3 ? 'center' : null,
+          link.id === selectedIndex ? 'active' : null,
+        ]"
+      >
         <div :key="link.iconClass" class="icon" :class="`${link.iconClass}`" />
       </div>
     </li>
@@ -13,8 +26,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch, onMounted } from 'vue';
-import { gsap } from 'gsap';
+import { ref, computed, watch, onMounted } from 'vue'
+import { gsap } from 'gsap'
 
 const props = defineProps(['modelValue'])
 const emit = defineEmits(['update:modelValue'])
@@ -25,152 +38,149 @@ const value = computed({
   },
   set(value) {
     emit('update:modelValue', value)
-  }
+  },
 })
 
 watch(value, (newVal) => {
-  if (newVal!== undefined) {
-    selectedIndex.value = newVal;
+  if (newVal !== undefined) {
+    selectedIndex.value = newVal
   }
-});
+})
 
-const menuItemRefs = ref<HTMLElement[]>([]);
-const sliderIndicatorRef = ref<HTMLElement>();
-const tabsRef = ref<HTMLElement>();
-const isMounted = ref(false);
-const isPlaying = ref(false);
-const selectedIndex = ref<number>(value.value || 1);
-const sliderLeftPos = ref(0);
-const sliderRightPos = ref(0);
+const menuItemRefs = ref<HTMLElement[]>([])
+const sliderIndicatorRef = ref<HTMLElement>()
+const tabsRef = ref<HTMLElement>()
+const isMounted = ref(false)
+const isPlaying = ref(false)
+const selectedIndex = ref<number>(value.value || 1)
+const sliderLeftPos = ref(0)
+const sliderRightPos = ref(0)
 const links = [
   {
     id: 1,
-    iconClass: "i-carbon-location-person"
+    iconClass: 'i-carbon-location-person',
   },
   {
     id: 2,
-    iconClass: "i-carbon-book"
+    iconClass: 'i-carbon-book',
   },
   {
     id: 3,
-    iconClass: "i-carbon-play-filled"
+    iconClass: 'i-carbon-play-filled',
   },
   {
     id: 4,
-    iconClass: "i-carbon-apps"
+    iconClass: 'i-carbon-apps',
   },
   {
     id: 5,
-    iconClass: "i-carbon-contour-finding"
-  }
-];
+    iconClass: 'i-carbon-contour-finding',
+  },
+]
 
 const initialSliderPos = computed(() => {
-  if (!isMounted.value) return;
-  let element = menuItemRefs.value[selectedIndex.value - 1];
-  return element.offsetLeft + element.offsetWidth / 2;
-});
+  if (!isMounted.value) return
+  let element = menuItemRefs.value[selectedIndex.value - 1]
+  return element.offsetLeft + element.offsetWidth / 2
+})
 
 watch(initialSliderPos, (newVal) => {
   if (sliderLeftPos.value === 0 && newVal !== undefined) {
-    sliderLeftPos.value = newVal;
+    sliderLeftPos.value = newVal
   }
-});
+})
 
 watch(selectedIndex, (newIndex, oldIndex) => {
-  animateSlider(newIndex, oldIndex);
-});
+  animateSlider(newIndex, oldIndex)
+})
 
 onMounted(() => {
-  isMounted.value = true;
-});
+  isMounted.value = true
+})
 
 const sliderToPosition = (id: number) => {
   if (!isPlaying.value) {
-    selectedIndex.value = id;
+    selectedIndex.value = id
     // animate timeline
     setTimeout(() => {
       value.value = id
-    }, 800);
+    }, 800)
   }
-};
+}
 
 const animateSlider = (newIndex: number, oldIndex: number) => {
-  let prevElement = menuItemRefs.value[oldIndex - 1];
-  let nextElement = menuItemRefs.value[newIndex - 1];
-  let sliderElement = sliderIndicatorRef.value!;
-  let parentTabs = tabsRef.value!;
+  let prevElement = menuItemRefs.value[oldIndex - 1]
+  let nextElement = menuItemRefs.value[newIndex - 1]
+  let sliderElement = sliderIndicatorRef.value!
+  let parentTabs = tabsRef.value!
   let distanceBetweenElements = Math.abs(
     prevElement.offsetLeft - nextElement.offsetLeft
-  );
+  )
 
   if (newIndex > oldIndex) {
-    isPlaying.value = true;
-    let forwardTimeline = gsap.timeline({ paused: true });
-    forwardTimeline.set(sliderElement, { clearProps: "right" });
+    isPlaying.value = true
+    let forwardTimeline = gsap.timeline({ paused: true })
+    forwardTimeline.set(sliderElement, { clearProps: 'right' })
     forwardTimeline.set(sliderElement, {
-      left: sliderLeftPos.value
-    });
+      left: sliderLeftPos.value,
+    })
     forwardTimeline
       .to(sliderElement, {
         duration: 0.75,
-        width: distanceBetweenElements
+        width: distanceBetweenElements,
       })
       .to(sliderElement, {
         duration: 0.25,
-        width: "0.6rem",
+        width: '0.6rem',
         left: nextElement.offsetLeft + nextElement.offsetWidth / 2,
         onComplete: () => {
           sliderLeftPos.value =
-            nextElement.offsetLeft + nextElement.offsetWidth / 2;
-          sliderRightPos.value = parentTabs.offsetWidth - sliderLeftPos.value;
-          isPlaying.value = false;
-        }
-      });
-    forwardTimeline.play();
+            nextElement.offsetLeft + nextElement.offsetWidth / 2
+          sliderRightPos.value = parentTabs.offsetWidth - sliderLeftPos.value
+          isPlaying.value = false
+        },
+      })
+    forwardTimeline.play()
   } else {
-    isPlaying.value = true;
+    isPlaying.value = true
     let rightOldPosition =
       parentTabs.offsetWidth -
       prevElement.offsetLeft -
       prevElement.offsetWidth / 2 -
-      sliderElement.offsetWidth;
+      sliderElement.offsetWidth
 
     let rightNewPostion =
       parentTabs.offsetWidth -
       nextElement.offsetLeft -
       nextElement.offsetWidth / 2 -
-      sliderElement.offsetWidth;
+      sliderElement.offsetWidth
 
-    let reverseTimeline = gsap.timeline({ paused: true });
+    let reverseTimeline = gsap.timeline({ paused: true })
     reverseTimeline.set(sliderElement, {
-      clearProps: "left",
-      right: rightOldPosition
-    });
+      clearProps: 'left',
+      right: rightOldPosition,
+    })
     reverseTimeline
       .to(sliderElement, {
         duration: 0.75,
-        width: distanceBetweenElements
+        width: distanceBetweenElements,
       })
       .to(sliderElement, {
         duration: 0.25,
-        width: "0.6rem",
+        width: '0.6rem',
         right: rightNewPostion,
         onComplete: () => {
-          sliderRightPos.value = rightNewPostion;
-          sliderLeftPos.value = sliderElement.offsetLeft;
-          isPlaying.value = false;
-        }
-      });
-    reverseTimeline.play();
+          sliderRightPos.value = rightNewPostion
+          sliderLeftPos.value = sliderElement.offsetLeft
+          isPlaying.value = false
+        },
+      })
+    reverseTimeline.play()
   }
-
-};
-
-
+}
 </script>
 
-<style lang="scss" >
+<style lang="scss">
 :root {
   --bg-color: #c7d2fd;
   --active-color: #5f57b6;

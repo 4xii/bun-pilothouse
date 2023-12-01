@@ -4,80 +4,83 @@
     <div :class="['minifigure', { explode: isExploded }]">
       <div class="head">
         <div class="faces-wrap">
-          <div class="faces" :style="{ transform: `translateX(-${expressionVal * 100}%)` }">
-        <div class="face classic">
-          <div class="eye right"></div>
-          <div class="eye left"></div>
-          <div class="mouth"></div>
-        </div>
+          <div
+            class="faces"
+            :style="{ transform: `translateX(-${expressionVal * 100}%)` }"
+          >
+            <div class="face classic">
+              <div class="eye right"></div>
+              <div class="eye left"></div>
+              <div class="mouth"></div>
+            </div>
 
-        <div class="face smile">
-          <div class="eye right">
-            <div class="brow"></div>
-          </div>
-          <div class="eye left">
-            <div class="brow"></div>
-          </div>
-          <div class="mouth"></div>
-        </div>
+            <div class="face smile">
+              <div class="eye right">
+                <div class="brow"></div>
+              </div>
+              <div class="eye left">
+                <div class="brow"></div>
+              </div>
+              <div class="mouth"></div>
+            </div>
 
-        <div class="face large-smile">
-          <div class="eye right">
-            <div class="brow"></div>
-          </div>
-          <div class="eye left">
-            <div class="brow"></div>
-          </div>
-          <div class="mouth"></div>
-        </div>
+            <div class="face large-smile">
+              <div class="eye right">
+                <div class="brow"></div>
+              </div>
+              <div class="eye left">
+                <div class="brow"></div>
+              </div>
+              <div class="mouth"></div>
+            </div>
 
-        <div class="face worried">
-          <div class="eye right">
-            <div class="brow"></div>
-          </div>
-          <div class="eye left">
-            <div class="brow"></div>
-          </div>
-          <div class="mouth"></div>
-        </div>
+            <div class="face worried">
+              <div class="eye right">
+                <div class="brow"></div>
+              </div>
+              <div class="eye left">
+                <div class="brow"></div>
+              </div>
+              <div class="mouth"></div>
+            </div>
 
-        <div class="face frown">
-          <div class="eye right">
-            <div class="brow"></div>
-          </div>
-          <div class="eye left">
-            <div class="brow"></div>
-          </div>
-          <div class="mouth"></div>
-        </div>
+            <div class="face frown">
+              <div class="eye right">
+                <div class="brow"></div>
+              </div>
+              <div class="eye left">
+                <div class="brow"></div>
+              </div>
+              <div class="mouth"></div>
+            </div>
 
-        <div class="face surprised">
-          <div class="eye right">
-            <div class="brow"></div>
+            <div class="face surprised">
+              <div class="eye right">
+                <div class="brow"></div>
+              </div>
+              <div class="eye left">
+                <div class="brow"></div>
+              </div>
+              <div class="mouth"></div>
+            </div>
           </div>
-          <div class="eye left">
-            <div class="brow"></div>
-          </div>
-          <div class="mouth"></div>
         </div>
       </div>
-    </div>
-  </div>
-  <div class="upper-body" :style="{ color: upperBodyColor }">
-    <div class="torso"></div>
-    <div class="arm right">
-      <div class="hand right"></div>
-    </div>
-    <div class="arm left">
-      <div class="hand left"></div>
-    </div>
-  </div>
-  <div class="lower-body" :style="{ color: lowerBodyColor }">
-    <div class="waist"></div>
-    <div class="crotch"></div>
-    <div class="leg right"></div>
-    <div class="leg left"></div>
-  </div>
+      <div class="upper-body" :style="{ color: upperBodyColor }">
+        <div class="torso"></div>
+        <div class="arm right">
+          <div class="hand right"></div>
+        </div>
+        <div class="arm left">
+          <div class="hand left"></div>
+        </div>
+      </div>
+      <div class="lower-body" :style="{ color: lowerBodyColor }">
+        <div class="waist"></div>
+        <div class="crotch"></div>
+        <div class="leg right"></div>
+        <div class="leg left"></div>
+      </div>
     </div>
 
     <!-- controls -->
@@ -94,25 +97,34 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue';
+import { ref, computed } from 'vue'
 
-withDefaults(defineProps<{
-  expressionVal:0|1|2|3|4|5
-}>(),{
-  expressionVal:0
-})
+withDefaults(
+  defineProps<{
+    expressionVal: 0 | 1 | 2 | 3 | 4 | 5
+  }>(),
+  {
+    expressionVal: 0,
+  }
+)
 
 // TODO暴露衣服的API
-const isExploded = ref(false);
-const upperHue = ref(200);
-const upperSaturation = ref(0);
-const upperLightness = ref(90);
-const lowerHue = ref(200);
-const lowerSaturation = ref(0);
-const lowerLightness = ref(90);
+const isExploded = ref(false)
+const upperHue = ref(200)
+const upperSaturation = ref(0)
+const upperLightness = ref(90)
+const lowerHue = ref(200)
+const lowerSaturation = ref(0)
+const lowerLightness = ref(90)
 
-const upperBodyColor = computed(() => `hsl(${upperHue.value},${upperSaturation.value}%,${upperLightness.value}%)`);
-const lowerBodyColor = computed(() => `hsl(${lowerHue.value},${lowerSaturation.value}%,${lowerLightness.value}%)`);
+const upperBodyColor = computed(
+  () =>
+    `hsl(${upperHue.value},${upperSaturation.value}%,${upperLightness.value}%)`
+)
+const lowerBodyColor = computed(
+  () =>
+    `hsl(${lowerHue.value},${lowerSaturation.value}%,${lowerLightness.value}%)`
+)
 </script>
 
 <style scoped>
@@ -140,21 +152,20 @@ const lowerBodyColor = computed(() => `hsl(${lowerHue.value},${lowerSaturation.v
   width: 7.25em;
   height: 6.25em;
   transform: translateX(-50%);
-  color: hsla(50,90%,50%,1);
+  color: hsla(50, 90%, 50%, 1);
   background-color: currentColor;
-  background-image:
-    linear-gradient(
-      rgba(255,255,255,0.3),
-      rgba(255,255,255,0) 20%,
-      rgba(0,0,0,0) 80%,
-      rgba(0,0,0,0.15) 95%,
-      rgba(0,0,0,0.3)
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.3),
+      rgba(255, 255, 255, 0) 20%,
+      rgba(0, 0, 0, 0) 80%,
+      rgba(0, 0, 0, 0.15) 95%,
+      rgba(0, 0, 0, 0.3)
     ),
     linear-gradient(
       to right,
-      rgba(255,255,255,0) 50%,
-      rgba(255,255,255,0.2),
-      rgba(255,255,255,0)
+      rgba(255, 255, 255, 0) 50%,
+      rgba(255, 255, 255, 0.2),
+      rgba(255, 255, 255, 0)
     );
   border-radius: 1.5em;
   transition: transform 400ms;
@@ -178,16 +189,15 @@ const lowerBodyColor = computed(() => `hsl(${lowerHue.value},${lowerSaturation.v
   top: -1.25em;
   width: 3.5em;
   height: 1.25em;
-  background-image:
-    linear-gradient(
-      rgba(255,255,255,0.5),
-      rgba(255,255,255,0) 30%
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0) 30%
     ),
     linear-gradient(
       to right,
-      rgba(255,255,255,0) 70%,
-      rgba(255,255,255,0.25) 80%,
-      rgba(255,255,255,0) 90%
+      rgba(255, 255, 255, 0) 70%,
+      rgba(255, 255, 255, 0.25) 80%,
+      rgba(255, 255, 255, 0) 90%
     );
   border-radius: 0.25em 0.25em 0 0;
 }
@@ -196,16 +206,12 @@ const lowerBodyColor = computed(() => `hsl(${lowerHue.value},${lowerSaturation.v
   bottom: -0.875em;
   width: 4.5em;
   height: 1em;
-  background-image:
-    linear-gradient(
-      rgba(0,0,0,0.2),
-      rgba(0,0,0,0.05) 50%
-    ),
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.05) 50%),
     linear-gradient(
       to right,
-      rgba(255,255,255,0) 70%,
-      rgba(255,255,255,0.25) 80%,
-      rgba(255,255,255,0) 90%
+      rgba(255, 255, 255, 0) 70%,
+      rgba(255, 255, 255, 0.25) 80%,
+      rgba(255, 255, 255, 0) 90%
     );
   border-radius: 0 0 0.125em 0.125em;
 }
@@ -219,7 +225,7 @@ const lowerBodyColor = computed(() => `hsl(${lowerHue.value},${lowerSaturation.v
 
 .faces {
   display: flex;
-  transition: transform 400ms cubic-bezier(0,0,0,1.25);
+  transition: transform 400ms cubic-bezier(0, 0, 0, 1.25);
 }
 
 .explode .faces {
@@ -309,7 +315,6 @@ const lowerBodyColor = computed(() => `hsl(${lowerHue.value},${lowerSaturation.v
   margin-left: 0.25em;
   transform: translateX(-50%) rotate(20deg);
 }
-
 
 /* Brow */
 
@@ -539,7 +544,7 @@ const lowerBodyColor = computed(() => `hsl(${lowerHue.value},${lowerSaturation.v
   z-index: 1;
   top: 9.25em;
   width: 100%;
-  color: hsl(200,0%,90%);
+  color: hsl(200, 0%, 90%);
   perspective: 320px;
 }
 
@@ -556,17 +561,16 @@ const lowerBodyColor = computed(() => `hsl(${lowerHue.value},${lowerSaturation.v
   width: 3em;
   height: 3.5em;
   background-color: currentColor;
-  background-image:
-    linear-gradient(
+  background-image: linear-gradient(
       to right,
-      rgba(255,255,255,0) 50%,
-      rgba(255,255,255,0.2),
-      rgba(255,255,255,0) 90%
+      rgba(255, 255, 255, 0) 50%,
+      rgba(255, 255, 255, 0.2),
+      rgba(255, 255, 255, 0) 90%
     ),
     linear-gradient(
-      rgba(0,0,0,0) 50%,
-      rgba(0,0,0,0.05) 80%,
-      rgba(0,0,0,0.1)
+      rgba(0, 0, 0, 0) 50%,
+      rgba(0, 0, 0, 0.05) 80%,
+      rgba(0, 0, 0, 0.1)
     );
   border-radius: 50% 50% 0 0/10% 10% 0 0;
 }
@@ -575,14 +579,13 @@ const lowerBodyColor = computed(() => `hsl(${lowerHue.value},${lowerSaturation.v
   top: -2.75em;
   width: 2em;
   height: 2em;
-  background-color: rgba(0,0,0,0.9);
-  background-image:
-    linear-gradient(
-      to right,
-      rgba(255,255,255,0) 50%,
-      rgba(255,255,255,0.2) 80%,
-      rgba(255,255,255,0)
-    );
+  background-color: rgba(0, 0, 0, 0.9);
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 50%,
+    rgba(255, 255, 255, 0.2) 80%,
+    rgba(255, 255, 255, 0)
+  );
   border-radius: 50%/10%;
 }
 
@@ -596,18 +599,17 @@ const lowerBodyColor = computed(() => `hsl(${lowerHue.value},${lowerSaturation.v
   transform-origin: top center;
   transform: translateX(-50%) rotateX(45deg);
   background-color: currentColor;
-  background-image:
-    linear-gradient(
-      rgba(255,255,255,0.1),
-      rgba(0,0,0,0) 80%,
-      rgba(0,0,0,0.05) 98%,
-      rgba(0,0,0,0.25) 100%
-    );
+  background-image: linear-gradient(
+    rgba(255, 255, 255, 0.1),
+    rgba(0, 0, 0, 0) 80%,
+    rgba(0, 0, 0, 0.05) 98%,
+    rgba(0, 0, 0, 0.25) 100%
+  );
   border-radius: 0.5em 0.5em 0.125em 0.125em;
   box-shadow:
-    inset 0 0.25em 0.25em rgba(255,255,255,0.5),
-    -1.5em 0.5em 1em -1.25em rgba(0,0,0,0.3),
-    1.5em 0.5em 1em -1.25em rgba(0,0,0,0.3);
+    inset 0 0.25em 0.25em rgba(255, 255, 255, 0.5),
+    -1.5em 0.5em 1em -1.25em rgba(0, 0, 0, 0.3),
+    1.5em 0.5em 1em -1.25em rgba(0, 0, 0, 0.3);
 }
 
 .arm {
@@ -625,18 +627,18 @@ const lowerBodyColor = computed(() => `hsl(${lowerHue.value},${lowerSaturation.v
   margin-left: -6.25rem;
   transform: translateX(-50%) rotate(12deg);
   box-shadow:
-    inset 0.5em 0.25em 0.375em -0.25em rgba(255,255,255,0.4),
+    inset 0.5em 0.25em 0.375em -0.25em rgba(255, 255, 255, 0.4),
     inset 0 0 0.75em 0.75em currentColor,
-    inset 0 0 0 2em rgba(255,255,255, 0.15);
+    inset 0 0 0 2em rgba(255, 255, 255, 0.15);
 }
 
 .arm.left {
   margin-left: 6.25rem;
   transform: translateX(-50%) rotate(-12deg);
   box-shadow:
-    inset -0.5em 0.25em 0.375em -0.25em rgba(255,255,255,0.4),
+    inset -0.5em 0.25em 0.375em -0.25em rgba(255, 255, 255, 0.4),
     inset 0 0 0.75em 0.75em currentColor,
-    inset 0 0 0 2em rgba(255,255,255, 0.15);
+    inset 0 0 0 2em rgba(255, 255, 255, 0.15);
 }
 
 .arm::before {
@@ -655,17 +657,17 @@ const lowerBodyColor = computed(() => `hsl(${lowerHue.value},${lowerSaturation.v
 .arm.right::before {
   transform: rotate(14deg);
   box-shadow:
-    inset 0.75em 0.125em 0.375em -0.5em rgba(255,255,255,0.4),
+    inset 0.75em 0.125em 0.375em -0.5em rgba(255, 255, 255, 0.4),
     inset 0.25em 1.1em 0.75em 0.75em currentColor,
-    inset 0 0 0 2em rgba(255,255,255, 0.15);
+    inset 0 0 0 2em rgba(255, 255, 255, 0.15);
 }
 
 .arm.left::before {
   transform: rotate(-14deg);
   box-shadow:
-    inset -0.75em 0.125em 0.375em -0.5em rgba(255,255,255,0.4),
+    inset -0.75em 0.125em 0.375em -0.5em rgba(255, 255, 255, 0.4),
     inset -0.25em 1.1em 0.75em 0.75em currentColor,
-    inset 0 0 0 2em rgba(255,255,255, 0.15);
+    inset 0 0 0 2em rgba(255, 255, 255, 0.15);
 }
 
 .arm::after {
@@ -678,7 +680,7 @@ const lowerBodyColor = computed(() => `hsl(${lowerHue.value},${lowerSaturation.v
   transform-origin: center 4.5em;
   background-color: currentColor;
   border-radius: 50%;
-  box-shadow: inset 0 0 0 1em rgba(255,255,255,0.2);
+  box-shadow: inset 0 0 0 1em rgba(255, 255, 255, 0.2);
 }
 
 .hand {
@@ -689,17 +691,16 @@ const lowerBodyColor = computed(() => `hsl(${lowerHue.value},${lowerSaturation.v
   width: 1.75em;
   height: 1.75em;
   transform: translateX(-50%);
-  color: hsla(50,90%,50%,1);
+  color: hsla(50, 90%, 50%, 1);
   background-color: currentColor;
-  background-image:
-    linear-gradient(
-      to right,
-      rgba(255,255,255,0.2),
-      rgba(0,0,0,0.075),
-      rgba(255,255,255,0.2)
-    );
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.2),
+    rgba(0, 0, 0, 0.075),
+    rgba(255, 255, 255, 0.2)
+  );
   border-radius: 1em/0.5em;
-  box-shadow: 0 -0.125em 0.125em rgba(0,0,0,0.1);
+  box-shadow: 0 -0.125em 0.125em rgba(0, 0, 0, 0.1);
 }
 
 .hand::before {
@@ -711,11 +712,11 @@ const lowerBodyColor = computed(() => `hsl(${lowerHue.value},${lowerSaturation.v
   width: 3.5em;
   height: 3.5em;
   transform: translateX(-50%);
-  color: hsla(50,90%,60%,1);
+  color: hsla(50, 90%, 60%, 1);
   border: 0.75em solid;
   border-bottom-color: transparent;
   box-shadow:
-    inset 0 0.25em rgba(0,0,0,0.15),
+    inset 0 0.25em rgba(0, 0, 0, 0.15),
     inset 0 0.25em;
   border-radius: 50%;
 }
@@ -729,7 +730,7 @@ const lowerBodyColor = computed(() => `hsl(${lowerHue.value},${lowerSaturation.v
   width: 10em;
   height: 11.75em;
   transform: translateX(-50%);
-  color: hsl(200,0%,90%);
+  color: hsl(200, 0%, 90%);
   transition: transform 400ms;
 }
 
@@ -747,15 +748,14 @@ const lowerBodyColor = computed(() => `hsl(${lowerHue.value},${lowerSaturation.v
   top: 0;
   width: 100%;
   height: 1.5em;
-  background-image:
-    linear-gradient(
-      rgba(0,0,0,0.15),
-      rgba(0,0,0,0) 80%,
-      rgba(255,255,255,0.1) 90%,
-      rgba(255,255,255,0.15)
-    );
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0) 80%,
+    rgba(255, 255, 255, 0.1) 90%,
+    rgba(255, 255, 255, 0.15)
+  );
   border-radius: 0.125em;
-  box-shadow: 0 0.75em 0.75em -0.25em rgba(0,0,0,0.25);
+  box-shadow: 0 0.75em 0.75em -0.25em rgba(0, 0, 0, 0.25);
 }
 
 .waist::before,
@@ -768,25 +768,21 @@ const lowerBodyColor = computed(() => `hsl(${lowerHue.value},${lowerSaturation.v
   height: 3em;
   transform: translateX(-50%);
   background-color: currentColor;
-  background-image:
-    linear-gradient(
-      rgba(255,255,255,0.75),
-      rgba(255,255,255,0) 10%
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.75),
+      rgba(255, 255, 255, 0) 10%
     ),
     linear-gradient(
       to right,
-      rgba(255,255,255,0) 20%,
-      rgba(255,255,255,0.25) 25%,
-      rgba(255,255,255,0) 40%,
-      rgba(255,255,255,0) 60%,
-      rgba(255,255,255,0.25) 75%,
-      rgba(255,255,255,0) 80%,
-      rgba(255,255,255,0.2)
+      rgba(255, 255, 255, 0) 20%,
+      rgba(255, 255, 255, 0.25) 25%,
+      rgba(255, 255, 255, 0) 40%,
+      rgba(255, 255, 255, 0) 60%,
+      rgba(255, 255, 255, 0.25) 75%,
+      rgba(255, 255, 255, 0) 80%,
+      rgba(255, 255, 255, 0.2)
     ),
-    linear-gradient(
-      rgba(255,255,255,0.1),
-      rgba(0,0,0,0.15)
-    );
+    linear-gradient(rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.15));
 }
 
 .waist::before {
@@ -806,20 +802,19 @@ const lowerBodyColor = computed(() => `hsl(${lowerHue.value},${lowerSaturation.v
   width: 10%;
   height: 4.5em;
   transform: translateX(-50%);
-  background-image:
-    linear-gradient(
-      rgba(0,0,0,0.2),
-      rgba(0,0,0,0.05) 10%,
-      rgba(0,0,0,0.2) 10%,
-      rgba(255,255,255,0.1),
-      rgba(0,0,0,0.1)
-    );
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0.05) 10%,
+    rgba(0, 0, 0, 0.2) 10%,
+    rgba(255, 255, 255, 0.1),
+    rgba(0, 0, 0, 0.1)
+  );
   border-radius: 0 0 0.25em 0.25em;
   box-shadow:
-    -0.5em 0 0.25em -0.25em rgba(0,0,0,0.15),
-    0.5em 0 0.25em -0.25em rgba(0,0,0,0.15),
-    -0.25em 0 0.125em -0.125em rgba(0,0,0,0.2),
-    0.25em 0 0.125em -0.125em rgba(0,0,0,0.2);
+    -0.5em 0 0.25em -0.25em rgba(0, 0, 0, 0.15),
+    0.5em 0 0.25em -0.25em rgba(0, 0, 0, 0.15),
+    -0.25em 0 0.125em -0.125em rgba(0, 0, 0, 0.2),
+    0.25em 0 0.125em -0.125em rgba(0, 0, 0, 0.2);
 }
 
 .leg {
@@ -828,19 +823,21 @@ const lowerBodyColor = computed(() => `hsl(${lowerHue.value},${lowerSaturation.v
   width: 4.75em;
   height: 10.75em;
   transform: translateX(-50%);
-  background-image:
-    linear-gradient(
-      rgba(0,0,0,0.1) 10%,
-      rgba(255,255,255,0.1) 25%,
-      rgba(0,0,0,0.1) 45%,
-      rgba(0,0,0,0), 50%,
-      rgba(0,0,0,0.05), 65%,
-      rgba(0,0,0,0) 74%,
-      rgba(0,0,0,0.1), 78%,
-      rgba(255,255,255,0.2) 78%,
-      rgba(255,255,255,0) 82%,
-      rgba(0,0,0,0.1)
-    );
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.1) 10%,
+    rgba(255, 255, 255, 0.1) 25%,
+    rgba(0, 0, 0, 0.1) 45%,
+    rgba(0, 0, 0, 0),
+    50%,
+    rgba(0, 0, 0, 0.05),
+    65%,
+    rgba(0, 0, 0, 0) 74%,
+    rgba(0, 0, 0, 0.1),
+    78%,
+    rgba(255, 255, 255, 0.2) 78%,
+    rgba(255, 255, 255, 0) 82%,
+    rgba(0, 0, 0, 0.1)
+  );
   border-radius: 0.25em 0.25em 0.0625em 0.0625em;
 }
 
@@ -852,7 +849,6 @@ const lowerBodyColor = computed(() => `hsl(${lowerHue.value},${lowerSaturation.v
   margin-left: 2.75em;
 }
 
-
 /* Controls */
 
 .controls {
@@ -862,7 +858,7 @@ const lowerBodyColor = computed(() => `hsl(${lowerHue.value},${lowerSaturation.v
   padding: 1.5em;
   color: #333;
   text-transform: uppercase;
-  background-color: rgba(220,220,220,0.5);
+  background-color: rgba(220, 220, 220, 0.5);
 }
 
 .controls .title {
@@ -914,8 +910,8 @@ const lowerBodyColor = computed(() => `hsl(${lowerHue.value},${lowerSaturation.v
   letter-spacing: 0.0625em;
 }
 
-.controls input[type="range"] {
-  -webkit-appearance: none; 
+.controls input[type='range'] {
+  -webkit-appearance: none;
   appearance: none;
   position: relative;
   width: 100%;
@@ -928,19 +924,19 @@ const lowerBodyColor = computed(() => `hsl(${lowerHue.value},${lowerSaturation.v
   outline: none;
 }
 
-.controls input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none; 
+.controls input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
   appearance: none;
   position: relative;
   z-index: 10;
   width: 1.5em;
   height: 1.5em;
-  background-color: hsla(50,90%,50%,1);
+  background-color: hsla(50, 90%, 50%, 1);
   border-radius: 50%;
   cursor: pointer;
 }
 
-.controls input[type="range"]::-moz-range-thumb {
+.controls input[type='range']::-moz-range-thumb {
   position: relative;
   z-index: 10;
   width: 1.5em;
@@ -950,7 +946,7 @@ const lowerBodyColor = computed(() => `hsl(${lowerHue.value},${lowerSaturation.v
   cursor: pointer;
 }
 
-.controls input[type="range"]::-moz-range-track {
+.controls input[type='range']::-moz-range-track {
   background-color: transparent;
 }
 </style>

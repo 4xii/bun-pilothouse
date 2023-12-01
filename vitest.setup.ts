@@ -9,8 +9,8 @@ import { beforeEach, vi } from 'vitest'
 function setupRouterMock() {
   const router = createRouterMock({
     spy: {
-      create: fn => vi.fn(fn),
-      reset: spy => spy.mockClear(),
+      create: (fn) => vi.fn(fn),
+      reset: (spy) => spy.mockClear(),
     },
   })
 
@@ -26,6 +26,5 @@ setupRouterMock()
 
 const originalConsoleWarn = console.warn
 console.warn = (log: string) => {
-  if (!log.includes('[Vue Router warn]'))
-    return originalConsoleWarn(log)
+  if (!log.includes('[Vue Router warn]')) return originalConsoleWarn(log)
 }

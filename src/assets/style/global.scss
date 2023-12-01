@@ -14,41 +14,38 @@ body {
 
 #app {
   display: flex;
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
   height: 100%;
 }
 
+/* Works on Firefox */
+* {
+  scrollbar-width: thin; /* "auto" or "thin" */
+  scrollbar-color: rgb(253, 172, 152) #292929; /* scroll thumb and track */
+  margin: 0;
+  padding: 0;
+}
 
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 0.4rem; /* width of the entire scrollbar */
+}
 
-      /* Works on Firefox */
-      * {
-        scrollbar-width: thin;          /* "auto" or "thin" */
-        scrollbar-color: rgb(253,172,152) #292929;   /* scroll thumb and track */
-        margin: 0;
-        padding: 0;
-      }
-      
-      /* Works on Chrome, Edge, and Safari */
-      *::-webkit-scrollbar {
-        width: .4rem;                   /* width of the entire scrollbar */
-      }
+*::-webkit-scrollbar-track {
+  background: #292929; /* color of the tracking area - same as background color of the body to give it a                                         transparent effect, 'transparent' value doesn't work */
+}
 
-      *::-webkit-scrollbar-track {
-        background: #292929;            /* color of the tracking area - same as background color of the body to give it a                                         transparent effect, 'transparent' value doesn't work */
-      }
+*::-webkit-scrollbar-thumb {
+  background: linear-gradient(transparent, rgb(253, 172, 152));
+  -webkit-border-radius: 2rem;
+  border-radius: 2rem;
+}
 
-      *::-webkit-scrollbar-thumb {
-        background: linear-gradient(transparent, rgb(253,172,152));
-        -webkit-border-radius: 2rem;
-        border-radius: 2rem;
-      }
-      
-      *::-webkit-scrollbar-thumb:hover {
-        background: linear-gradient(transparent, #96ceb4)
-      }
-  
-      /**** End Future-Proof Scrollbar Styling  ****/
-      
+*::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(transparent, #96ceb4);
+}
+
+/**** End Future-Proof Scrollbar Styling  ****/

@@ -1,93 +1,112 @@
 <template>
   <div class="card-container w-100% h-100vh flex flex-center">
     <div class="carousel">
-    <button v-if="active > 0" class="nav left" @click="setActive(active - 1)">
-      <div class="i-carbon-chevron-left"></div>
-    </button>
-    <div v-for="(item, i) in items" :key="i" class="card-container" :style="cardContainerStyle(i)">
-      <div class="card">
-        <h2>{{ item.title }}</h2>
-        <p>{{ item.content }}</p>
+      <button v-if="active > 0" class="nav left" @click="setActive(active - 1)">
+        <div class="i-carbon-chevron-left"></div>
+      </button>
+      <div
+        v-for="(item, i) in items"
+        :key="i"
+        class="card-container"
+        :style="cardContainerStyle(i)"
+      >
+        <div class="card">
+          <h2>{{ item.title }}</h2>
+          <p>{{ item.content }}</p>
+        </div>
       </div>
+      <button
+        v-if="active < count - 1"
+        class="nav right"
+        @click="setActive(active + 1)"
+      >
+        <div class="i-carbon-chevron-right"></div>
+      </button>
     </div>
-    <button v-if="active < count - 1" class="nav right" @click="setActive(active + 1)">
-      <div class="i-carbon-chevron-right"></div>
-    </button>
-  </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, computed, StyleValue } from 'vue';
-const active = ref(2);
+import { ref, computed, StyleValue } from 'vue'
+const active = ref(2)
 const items = ref([
   {
     title: '施工中🚧',
-    content: 'wait a m'
-  }, {
+    content: 'wait a m',
+  },
+  {
     title: '施工中🚧',
-    content: 'wait a m'
-  }, {
+    content: 'wait a m',
+  },
+  {
     title: '施工中🚧',
-    content: 'wait a m'
-  }, {
+    content: 'wait a m',
+  },
+  {
     title: '施工中🚧',
-    content: 'wait a m'
-  }, {
+    content: 'wait a m',
+  },
+  {
     title: '施工中🚧',
-    content: 'wait a m'
-  }, {
+    content: 'wait a m',
+  },
+  {
     title: '施工中🚧',
-    content: 'wait a m'
-  }, {
+    content: 'wait a m',
+  },
+  {
     title: '施工中🚧',
-    content: 'wait a m'
-  }, {
+    content: 'wait a m',
+  },
+  {
     title: '施工中🚧',
-    content: 'wait a m'
-  }, {
+    content: 'wait a m',
+  },
+  {
     title: '施工中🚧',
-    content: 'wait a m'
-  }, {
+    content: 'wait a m',
+  },
+  {
     title: '施工中🚧',
-    content: 'wait a m'
-  }, {
+    content: 'wait a m',
+  },
+  {
     title: '施工中🚧',
-    content: 'wait a m'
-  }, {
+    content: 'wait a m',
+  },
+  {
     title: '施工中🚧',
-    content: 'wait a m'
-  }, {
+    content: 'wait a m',
+  },
+  {
     title: '施工中🚧',
-    content: 'wait a m'
-  }
-]);
+    content: 'wait a m',
+  },
+])
 
-
-const count = computed(() => items.value.length);
-const MAX_VISIBILITY = 3;
+const count = computed(() => items.value.length)
+const MAX_VISIBILITY = 3
 
 const setActive = (newActive: number) => {
-  active.value = newActive;
-};
+  active.value = newActive
+}
 
-const cardContainerStyle = (i: number):StyleValue => ({
+const cardContainerStyle = (i: number): StyleValue => ({
   '--active': i === active.value ? 1 : 0,
   '--offset': (active.value - i) / 3,
   '--direction': Math.sign(active.value - i),
   '--abs-offset': Math.abs(active.value - i) / 3,
   'pointer-events': active.value === i ? 'auto' : 'none',
-  'opacity': Math.abs(active.value - i) >= MAX_VISIBILITY ? '0' : '1',
-  'display': Math.abs(active.value - i) > MAX_VISIBILITY ? 'none' : 'block',
-});
-
+  opacity: Math.abs(active.value - i) >= MAX_VISIBILITY ? '0' : '1',
+  display: Math.abs(active.value - i) > MAX_VISIBILITY ? 'none' : 'block',
+})
 </script>
 
 <style lang="scss" scoped>
-$color-purple: #8B5CF6;
-$color-pink: #EC4899;
-$color-gray: #9CA3AF;
-$color-black: #1F2937;
+$color-purple: #8b5cf6;
+$color-pink: #ec4899;
+$color-gray: #9ca3af;
+$color-black: #1f2937;
 $card-size: 23rem;
 
 .card-container {
@@ -107,8 +126,7 @@ $card-size: 23rem;
   position: absolute;
   width: 100%;
   height: 100%;
-  transform: 
-    rotateY(calc(var(--offset) * 50deg)) 
+  transform: rotateY(calc(var(--offset) * 50deg))
     scaleY(calc(1 + var(--abs-offset) * -0.4))
     translateZ(calc(var(--abs-offset) * -30rem))
     translateX(calc(var(--direction) * -5rem));
@@ -125,7 +143,7 @@ $card-size: 23rem;
   color: $color-gray;
   text-align: justify;
   transition: all 0.3s ease-out;
-  
+
   h2 {
     text-align: center;
     font-size: 2rem;
@@ -133,8 +151,9 @@ $card-size: 23rem;
     margin: 0 0 0.7em;
     color: $color-black;
   }
-  
-  p, h2 {
+
+  p,
+  h2 {
     transition: all 0.3s ease-out;
     opacity: var(--active);
   }
@@ -153,11 +172,11 @@ $card-size: 23rem;
   user-select: none;
   background: unset;
   border: unset;
-  
+
   &.left {
     transform: translateX(-100%) translatey(-50%);
   }
-  
+
   &.right {
     right: 0;
     transform: translateX(100%) translatey(-50%);
