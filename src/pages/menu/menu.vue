@@ -1,25 +1,19 @@
 <template>
-  <div class="card-container w-100% h-100vh flex flex-center">
+  <div class="card-container w-100% h-100vh flex flex-col flex-center">
+    <Starport port="Avatar" class="fixed top-40px left-20px">
+      <Avatar />
+    </Starport>
     <div class="carousel">
       <button v-if="active > 0" class="nav left" @click="setActive(active - 1)">
         <div class="i-carbon-chevron-left"></div>
       </button>
-      <div
-        v-for="(item, i) in items"
-        :key="i"
-        class="card-container"
-        :style="cardContainerStyle(i)"
-      >
+      <div v-for="(item, i) in items" :key="i" class="card-container" :style="cardContainerStyle(i)">
         <div class="card">
           <h2>{{ item.title }}</h2>
           <p>{{ item.content }}</p>
         </div>
       </div>
-      <button
-        v-if="active < count - 1"
-        class="nav right"
-        @click="setActive(active + 1)"
-      >
+      <button v-if="active < count - 1" class="nav right" @click="setActive(active + 1)">
         <div class="i-carbon-chevron-right"></div>
       </button>
     </div>
@@ -28,6 +22,8 @@
 
 <script setup lang="ts">
 import { ref, computed, StyleValue } from 'vue'
+import { Starport } from "vue-starport"
+import Avatar from '@/components/avatar/avatar.vue'
 const active = ref(2)
 const items = ref([
   {
@@ -126,10 +122,7 @@ $card-size: 23rem;
   position: absolute;
   width: 100%;
   height: 100%;
-  transform: rotateY(calc(var(--offset) * 50deg))
-    scaleY(calc(1 + var(--abs-offset) * -0.4))
-    translateZ(calc(var(--abs-offset) * -30rem))
-    translateX(calc(var(--direction) * -5rem));
+  transform: rotateY(calc(var(--offset) * 50deg)) scaleY(calc(1 + var(--abs-offset) * -0.4)) translateZ(calc(var(--abs-offset) * -30rem)) translateX(calc(var(--direction) * -5rem));
   filter: blur(calc(var(--abs-offset) * 1rem));
   transition: all 0.3s ease-out;
 }

@@ -4,9 +4,10 @@
       <div v-if="activeSection === 1" class="">
         <div class="flex flex justify-between">
           <div class="flex">
-            <div class="w-180px mr-20px">
-              <Avatar />
-            </div>
+            <Starport port="Avatar" class="w-180px mr-20px">
+                <Avatar />
+            </Starport>
+
             <div class="text-80px">4XI</div>
           </div>
 
@@ -22,6 +23,7 @@
 </template>
 
 <script lang="ts" setup>
+import { Starport } from "vue-starport"
 import { ref } from 'vue'
 import ProfileContainer from './profile-container.vue'
 import AnimationTab from '../tabs/animation-tab.vue'
