@@ -1,5 +1,9 @@
 <template>
-  <router-view></router-view>
+ <StarportCarrier> <!-- 这里 -->
+    <RouterView />
+  </StarportCarrier>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+  import { StarportCarrier } from "vue-starport";
+</script>
