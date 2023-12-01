@@ -1,13 +1,8 @@
 import {
   defineConfig,
-  presetAttributify,
-  presetIcons,
   presetUno,
-  presetWebFonts,
-  // transformerDirectives,
-  // transformerVariantGroup,
 } from "unocss";
-
+import presetIcons from '@unocss/preset-icons'
 export default defineConfig({
   shortcuts: {
     'glassmorphism':'bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-40 border border-gray-100',
