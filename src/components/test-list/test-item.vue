@@ -26,7 +26,7 @@ const color = computed(() => {
 
 const scope = effectScope()
 
-const visibility = scope.run(() => useElementVisibility(el))
+const visibility = scope.run(() => el.value && useElementVisibility(el))
 
 onMounted(async () => {
   await until(visibility).toBe(true)
