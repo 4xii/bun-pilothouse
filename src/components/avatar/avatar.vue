@@ -1,7 +1,7 @@
 <template>
 	<div class="avatar">
 		<a href="https://github.com/4xii" target="_blank">
-			<img src="@/assets/avatar.jpg"/>
+			<img src="../../assets/avatar.jpg"/>
 		</a>
 	</div>
 

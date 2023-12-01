@@ -9,7 +9,7 @@
 <script setup lang="ts" >
 const logoRows = [
   ['i-logos-vue', 'i-logos-vitest', 'i-logos-jest', 'i-logos-vitejs'],
-  ['i-logos-webpack', 'i-logos-nestjs', 'i-logos-ramda', 'i-logos-egg'],
+  ['i-logos-webpack', 'i-logos-nestjs', 'i-logos-ramda',],
   ['i-logos-vueuse', 'i-logos-lodash', 'i-logos-zod', 'i-logos-bun']
 ]
 </script>
